@@ -23,23 +23,9 @@ It demonstrates real-world **frontend architecture + DevOps practices**, includi
 
 ---
 
-## 🖼️ Screenshots
+## 🖼️ Showcase
 
-### 🏠 Homepage
-
-![Homepage](./images/homepage.png)
-
-### 💼 Projects
-
-![Projects](./images/projects.png)
-
-### 🧠 Skills
-
-![Skills](./images/skills.png)
-
-### 📞 Contact
-
-![Contact](./images/contact.png)
+![DevOps Portfolio Homepage](./images/homepage.png)
 
 ---
 
