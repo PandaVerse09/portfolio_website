@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Terminal, Download, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import TerminalConsole from "@/components/TerminalConsole";
 
 const ROLES = ["DevOps Engineer", "Cloud Architect", "Backend Developer"];
 
@@ -38,6 +39,10 @@ export default function Hero() {
     return () => clearTimeout(timer);
   }, [displayedText, isDeleting, roleIndex, typingSpeed]);
 
+  const scrollToExperience = () => {
+    document.querySelector("#experience")?.scrollIntoView({ behavior: "smooth" });
+  };
+
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   };
@@ -67,93 +72,103 @@ export default function Hero() {
         />
       </div>
 
-      <div className="container mx-auto px-6 max-w-5xl relative z-10">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-center text-center space-y-8"
-        >
-          <div className="inline-flex items-center justify-center p-3 bg-secondary/50 rounded-2xl border border-border/50 shadow-2xl mb-4 backdrop-blur-sm">
-            <Terminal className="w-6 h-6 text-primary mr-3" />
-            <span className="font-mono text-sm tracking-wider text-muted-foreground">
-              system.status == "operational"
-            </span>
-          </div>
-
-          <div className="space-y-4">
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight text-foreground">
-              Utkarsh Aryan Mishra
-            </h1>
-            <div className="h-12 flex items-center justify-center">
-              <span className="text-2xl md:text-3xl font-mono text-accent">
-                {displayedText}
-                <motion.span
-                  animate={{ opacity: [1, 0] }}
-                  transition={{ repeat: Infinity, duration: 0.8 }}
-                  className="inline-block w-3 h-8 bg-accent ml-1 align-middle"
-                />
+      <div className="container mx-auto px-6 max-w-6xl relative z-10 w-full py-12">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+          {/* Left Column: Intro */}
+          <motion.div
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="lg:col-span-7 flex flex-col items-start text-left space-y-6"
+          >
+            <div className="inline-flex items-center justify-center p-3 bg-secondary/50 rounded-2xl border border-border/50 shadow-2xl backdrop-blur-sm">
+              <Terminal className="w-5 h-5 text-primary mr-3 animate-pulse" />
+              <span className="font-mono text-xs tracking-wider text-muted-foreground">
+                system.status == "operational"
               </span>
             </div>
-          </div>
 
-          <p className="max-w-2xl text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            DevOps & Backend Engineer focused on automating cloud infrastructure,
-            building secure APIs, and deploying production-grade systems. Experienced
-            in AWS, Docker, CI/CD, and Node.js.
-          </p>
+            <div className="space-y-3">
+              <h1 className="text-3xl sm:text-5xl lg:text-5xl xl:text-6xl font-bold tracking-tight text-foreground leading-tight lg:whitespace-nowrap">
+                Utkarsh Aryan Mishra
+              </h1>
+              <div className="h-10 flex items-center">
+                <span className="text-xl md:text-2xl font-mono text-accent font-semibold">
+                  {displayedText}
+                  <motion.span
+                    animate={{ opacity: [1, 0] }}
+                    transition={{ repeat: Infinity, duration: 0.8 }}
+                    className="inline-block w-2.5 h-6 bg-accent ml-1 align-middle"
+                  />
+                </span>
+              </div>
+            </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 pt-8 w-full sm:w-auto">
-            <Button
-              size="lg"
-              onClick={scrollToProjects}
-              className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-widest px-8 group relative overflow-hidden"
-            >
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-              <span className="relative flex items-center gap-2">
-                View My Work{" "}
-                <ArrowRight
-                  size={18}
-                  className="group-hover:translate-x-1 transition-transform"
-                />
-              </span>
-            </Button>
-            <Button
-              size="lg"
-              variant="default"
-              className="relative overflow-hidden px-8 font-mono uppercase tracking-widest group"
-              onClick={() => {
-                window.open("/Utkarsh_Aryan_Mishra_Resume.pdf", "_blank");
-              }}
-            >
-              {/* Hover Overlay */}
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+            <p className="max-w-xl text-base md:text-lg text-muted-foreground font-light leading-relaxed">
+              DevOps & Backend Engineer focused on automating cloud infrastructure,
+              building secure APIs, and deploying production-grade systems. Experienced
+              in AWS, Docker, CI/CD, and Node.js.
+            </p>
 
-              {/* Content */}
-              <span className="relative flex items-center gap-2">
-                View Resume
-              </span>
-            </Button>
-            <Button
-              size="lg"
-              className="relative overflow-hidden px-8 font-mono uppercase tracking-widest group"
-            >
-              <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-
-              <a
-                href="/Utkarsh_Aryan_Mishra_Resume.pdf"
-                download
-                className="relative flex items-center"
+            <div className="flex flex-wrap gap-3 pt-4 w-full">
+              <Button
+                size="lg"
+                onClick={scrollToProjects}
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider text-xs px-6 py-5 group relative overflow-hidden shrink-0"
               >
-                <Download
-                  size={18}
-                  className="mr-2 group-hover:-translate-y-1 transition-transform"
-                />
-                Download Resume
-              </a>
-            </Button>
-          </div>
-        </motion.div>
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                <span className="relative flex items-center gap-2">
+                  Inspect Deployments{" "}
+                  <ArrowRight
+                    size={16}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </span>
+              </Button>
+              <Button
+                size="lg"
+                variant="default"
+                className="relative overflow-hidden px-6 py-5 font-mono uppercase tracking-wider text-xs group shrink-0"
+                onClick={() => {
+                  window.open("/Utkarsh_Aryan_Mishra_Resume.pdf", "_blank");
+                }}
+              >
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                <span className="relative flex items-center gap-2">
+                  View Resume
+                </span>
+              </Button>
+              <Button
+                size="lg"
+                className="relative overflow-hidden px-6 py-5 font-mono uppercase tracking-wider text-xs group shrink-0"
+              >
+                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+
+                <a
+                  href="/Utkarsh_Aryan_Mishra_Resume.pdf"
+                  download
+                  className="relative flex items-center"
+                >
+                  <Download
+                    size={16}
+                    className="mr-2 group-hover:-translate-y-1 transition-transform"
+                  />
+                  Download
+                </a>
+              </Button>
+            </div>
+          </motion.div>
+
+          {/* Right Column: Interactive Terminal */}
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-5 w-full flex items-center justify-center"
+          >
+            <TerminalConsole />
+          </motion.div>
+        </div>
       </div>
     </section>
   );

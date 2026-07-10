@@ -127,20 +127,46 @@ export default function Skills() {
 
   return (
     <section id="skills" className="py-24 relative">
-      <div className="container mx-auto px-6 max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-16"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-mono">
-            <span className="text-primary mr-2">~</span>cat tools.txt
-          </h2>
-          <div className="h-1 w-20 bg-primary/50 rounded-full" />
-        </motion.div>
+      <div className="container mx-auto px-6 max-w-5xl relative">
+        {/* Server Rack Ears (Mount Brackets) */}
+        <div className="absolute -left-5 top-8 bottom-8 w-5 bg-card/60 border-y border-l border-border rounded-l-md flex flex-col justify-around items-center py-12 opacity-80 pointer-events-none hidden lg:flex shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary/50 animate-pulse shadow-[0_0_6px_rgba(88,166,255,0.8)]" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+        </div>
+        <div className="absolute -right-5 top-8 bottom-8 w-5 bg-card/60 border-y border-r border-border rounded-r-md flex flex-col justify-around items-center py-12 opacity-80 pointer-events-none hidden lg:flex shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-pulse shadow-[0_0_6px_rgba(138,180,248,0.8)]" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-16"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-mono flex items-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-accent animate-pulse shadow-[0_0_8px_rgba(138,180,248,0.8)]" />
+              <span className="text-muted-foreground mr-1 text-2xl font-light">~</span>cat tools.txt
+            </h2>
+            <div className="h-1 w-20 bg-primary/50 rounded-full" />
+          </motion.div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SKILL_CATEGORIES.map((category, idx) => (
             <motion.div 
               key={idx}
@@ -179,6 +205,7 @@ export default function Skills() {
               </motion.div>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>

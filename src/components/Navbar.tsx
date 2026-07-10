@@ -4,9 +4,10 @@ import { Menu, X } from "lucide-react";
 
 const NAV_LINKS = [
   { name: "Home", href: "#home" },
-  { name: "Projects", href: "#projects" },
-  { name: "Skills", href: "#skills" },
   { name: "Experience", href: "#experience" },
+  { name: "Skills", href: "#skills" },
+  { name: "Projects", href: "#projects" },
+  { name: "Console", href: "#control-center" },
   { name: "Contact", href: "#contact" },
 ];
 
@@ -40,13 +41,27 @@ export default function Navbar() {
       }`}
     >
       <div className="container mx-auto px-6 max-w-6xl flex items-center justify-between">
-        <a 
-          href="#home" 
-          onClick={(e) => { e.preventDefault(); scrollTo("#home"); }}
-          className="font-mono text-xl font-bold tracking-tighter text-primary drop-shadow-[0_0_8px_rgba(88,166,255,0.5)] flex items-center gap-2"
-        >
-          <span className="text-muted-foreground">&gt;_</span>UAM
-        </a>
+        <div className="flex items-center gap-6">
+          <a 
+            href="#home" 
+            onClick={(e) => { e.preventDefault(); scrollTo("#home"); }}
+            className="font-mono text-xl font-bold tracking-tighter text-primary drop-shadow-[0_0_8px_rgba(88,166,255,0.5)] flex items-center gap-2"
+          >
+            <span className="text-muted-foreground">&gt;_</span>UAM
+          </a>
+
+          {/* System Signal Board */}
+          <div className="hidden lg:flex items-center gap-3 border border-border/60 bg-secondary/30 px-3 py-1.5 rounded-lg font-mono text-[10px] text-muted-foreground select-none">
+            <span className="flex items-center gap-1.5">
+              <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+              <span className="text-emerald-400 font-bold uppercase">Online</span>
+            </span>
+            <span className="text-border/60">|</span>
+            <span>node: ap-south-1</span>
+            <span className="text-border/60">|</span>
+            <span>rtt: <span className="text-accent font-semibold">34ms</span></span>
+          </div>
+        </div>
 
         {/* Desktop Nav */}
         <div className="hidden md:flex items-center gap-8">

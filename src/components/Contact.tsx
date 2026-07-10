@@ -59,17 +59,43 @@ export default function Contact() {
       id="contact"
       className="py-24 bg-card/20 relative border-t border-border/50"
     >
-      <div className="container mx-auto px-6 max-w-5xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
-        >
-          <div>
-            <h2 className="text-3xl md:text-5xl font-bold mb-6 font-mono text-foreground">
-              <span className="text-primary mr-2">ssh</span>connect
-            </h2>
+      <div className="container mx-auto px-6 max-w-5xl relative">
+        {/* Server Rack Ears (Mount Brackets) */}
+        <div className="absolute -left-5 top-8 bottom-8 w-5 bg-card/60 border-y border-l border-border rounded-l-md flex flex-col justify-around items-center py-12 opacity-80 pointer-events-none hidden lg:flex shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1.5 h-1.5 rounded-full bg-emerald-500/50 animate-pulse shadow-[0_0_6px_rgba(16,185,129,0.8)]" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+        </div>
+        <div className="absolute -right-5 top-8 bottom-8 w-5 bg-card/60 border-y border-r border-border rounded-r-md flex flex-col justify-around items-center py-12 opacity-80 pointer-events-none hidden lg:flex shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-pulse shadow-[0_0_6px_rgba(138,180,248,0.8)]" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+        </div>
+
+        <div className="md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center"
+          >
+            <div>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 font-mono text-foreground flex items-center gap-2">
+                <span className="h-2.5 w-2.5 rounded-full bg-emerald-500 animate-pulse shadow-[0_0_8px_rgba(16,185,129,0.8)]" />
+                <span className="text-muted-foreground mr-1 text-2xl md:text-3xl font-light">ssh</span>connect
+              </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
               Interested in collaborating, discussing DevOps projects, or
               opportunities? Feel free to reach out — I’m actively seeking
@@ -173,6 +199,7 @@ export default function Contact() {
             </form>
           </div>
         </motion.div>
+        </div>
       </div>
     </section>
   );

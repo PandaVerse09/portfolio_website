@@ -172,4 +172,20 @@
   .hover-elevate-2:hover:not(.no-default-hover-elevate)::after, .active-elevate-2:active:not(.no-default-active-elevate)::after { background-color: var(--elevate-2); }
   .border.hover-elevate:not(.no-hover-interaction-elevate)::after, .border.active-elevate:not(.no-active-interaction-elevate)::after,
   .border.hover-elevate-2:not(.no-hover-interaction-elevate)::after, .border.active-elevate-2:not(.no-active-interaction-elevate)::after { inset: -1px; }
+
+  @keyframes pulseGlow {
+    0%, 100% {
+      box-shadow: 0 0 15px rgba(88, 166, 255, 0.1);
+      border-color: rgba(88, 166, 255, 0.25);
+    }
+    50% {
+      box-shadow: 0 0 25px rgba(88, 166, 255, 0.25);
+      border-color: rgba(88, 166, 255, 0.5);
+    }
+  }
+
+  .animate-glow-pulse {
+    animation: pulseGlow 4s infinite ease-in-out;
+  }
 }
+

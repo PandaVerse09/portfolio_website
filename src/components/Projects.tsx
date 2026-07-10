@@ -36,25 +36,51 @@ export default function Projects() {
   return (
     <section
       id="projects"
-      className="py-24 bg-card/30 relative border-y border-border/50"
+      className="py-24 bg-card/15 relative border-y border-border/50 backdrop-blur-sm"
     >
-      <div className="container mx-auto px-6 max-w-6xl">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          className="mb-16 text-center"
-        >
-          <h2 className="text-3xl md:text-4xl font-bold mb-4 font-mono">
-            <span className="text-primary mr-2">#</span>deployed_projects
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto">
-            Hands-on projects showcasing cloud infrastructure, CI/CD automation,
-            and scalable deployment practices.
-          </p>
-        </motion.div>
+      <div className="container mx-auto px-6 max-w-6xl relative">
+        {/* Server Rack Ears (Mount Brackets) */}
+        <div className="absolute -left-5 top-8 bottom-8 w-5 bg-card/60 border-y border-l border-border rounded-l-md flex flex-col justify-around items-center py-12 opacity-80 pointer-events-none hidden lg:flex shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1.5 h-1.5 rounded-full bg-primary/50 animate-pulse shadow-[0_0_6px_rgba(88,166,255,0.8)]" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+        </div>
+        <div className="absolute -right-5 top-8 bottom-8 w-5 bg-card/60 border-y border-r border-border rounded-r-md flex flex-col justify-around items-center py-12 opacity-80 pointer-events-none hidden lg:flex shadow-[0_0_15px_rgba(0,0,0,0.5)]">
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1.5 h-1.5 rounded-full bg-accent/50 animate-pulse shadow-[0_0_6px_rgba(138,180,248,0.8)]" />
+          </div>
+          <div className="w-2.5 h-2.5 rounded-full bg-[#182335] border border-border/85 flex items-center justify-center shadow-inner">
+            <div className="w-1 h-1 rounded-full bg-slate-500" />
+          </div>
+        </div>
+
+        <div className="md:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, margin: "-100px" }}
+            className="mb-16 text-center"
+          >
+            <h2 className="text-3xl md:text-4xl font-bold mb-4 font-mono flex items-center justify-center gap-2">
+              <span className="h-2 w-2 rounded-full bg-primary animate-pulse shadow-[0_0_8px_rgba(88,166,255,0.8)] shrink-0" />
+              <span className="text-muted-foreground mr-1 text-2xl font-light">&gt;_</span>deployed_projects
+            </h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto">
+              Hands-on projects showcasing cloud infrastructure, CI/CD automation,
+              and scalable deployment practices.
+            </p>
+          </motion.div>
  
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROJECTS.map((project, index) => (
             <motion.div
               key={index}
@@ -62,7 +88,7 @@ export default function Projects() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-50px" }}
               transition={{ duration: 0.4, delay: index * 0.1 }}
-              className="bg-background border border-border rounded-xl p-6 flex flex-col h-full hover:border-primary/40 hover:shadow-[0_0_30px_rgba(88,166,255,0.1)] transition-all duration-300 relative group overflow-hidden"
+              className="bg-card/45 border border-border/60 rounded-xl p-6 flex flex-col h-full hover:border-primary/50 hover:shadow-[0_0_30px_rgba(88,166,255,0.15)] transition-all duration-300 relative group overflow-hidden backdrop-blur-sm"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
  
@@ -105,6 +131,7 @@ export default function Projects() {
               </div>
             </motion.div>
           ))}
+        </div>
         </div>
       </div>
     </section>
