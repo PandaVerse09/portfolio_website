@@ -4,31 +4,31 @@ import { Button } from "@/components/ui/button";
 
 const PROJECTS = [
   {
-    title: "Portfolio Infrastructure",
+    title: "Daily Revenue Monitoring Portal (DRMP)",
     description:
-      "Deployed a scalable static portfolio using AWS S3 and CloudFront with automated CI/CD via GitHub Actions. Configured HTTPS and caching for performance optimization.",
-    tech: ["AWS", "S3", "CloudFront", "GitHub Actions"],
+      "Built 25+ REST API endpoints with Express.js and MongoDB/Mongoose for daily revenue reporting across Bank Wire, Payment Gateway, and Billing System streams; implemented JWT auth, bcrypt hashing, and RBAC. Engineered a client-side API adapter routing standard HTTP methods (GET, PUT, DELETE) through POST payloads to bypass firewall restrictions. Provisioned AWS EC2 infrastructure with Terraform, containerized the app with Docker (multi-stage, non-root builds), and configured Nginx with Certbot-managed SSL/TLS. Automated builds, pushes, and zero-downtime EC2 redeployment with a GitHub Actions CI/CD pipeline.",
+    tech: ["Node.js", "Express.js", "MongoDB", "Docker", "Terraform", "Nginx", "AWS", "GitHub Actions"],
+    icon: <Server className="w-6 h-6" />,
+    github: "https://github.com/PandaVerse09/daily-revenue-monitoring-portal",
+    live: "https://utkarsh-drmp.duckdns.org/",
+  },
+  {
+    title: "Portfolio Website with Automated CI/CD Deployment",
+    description:
+      "Deployed a personal portfolio website on AWS S3 + CloudFront CDN with a zero-touch CI/CD pipeline via GitHub Actions on every push to main. Configured HTTPS/TLS, IAM permissions, and automated caching for production-grade architecture. Automated build-and-deploy workflow invalidates the CloudFront cache on each release for instant content updates.",
+    tech: ["AWS S3", "CloudFront", "GitHub Actions", "React", "TypeScript", "Vite"],
     icon: <Cloud className="w-6 h-6" />,
     github: "https://github.com/PandaVerse09/portfolio_infrastructure",
     live: "https://d3qvrbjs8hjfhe.cloudfront.net/",
   },
   {
-    title: "Flask App Deployment (Dockerized)",
+    title: "Dockerized To-Do Application",
     description:
-      "Containerized a Flask web application using Docker and deployed it on AWS EC2. Configured Nginx as a reverse proxy and ensured scalable, consistent deployment using containers.",
-    tech: ["Docker", "AWS EC2", "Flask", "Nginx", "Linux"],
-    icon: <Server className="w-6 h-6" />,
+      "Containerized a Flask web application with Docker and configured Nginx as a reverse proxy to simulate real-world deployment topology across environments. Implemented task CRUD routes, persistent storage, and a Docker Compose setup to spin up the app and reverse proxy together with a single command.",
+    tech: ["Flask", "Docker", "Nginx", "Docker Compose"],
+    icon: <Code className="w-6 h-6" />,
     github: "https://github.com/PandaVerse09/todo-flask-app",
     live: "https://utkarshapp.publicvm.com",
-  },
-  {
-    title: "Recipe Finder App",
-    description:
-      "Developed a responsive recipe search application using HTML, CSS, and JavaScript with API integration. Enabled real-time data fetching and dynamic UI updates based on user input.",
-    tech: ["HTML", "CSS", "JavaScript", "API"],
-    icon: <Code className="w-6 h-6" />,
-    github: "https://github.com/PandaVerse09/recipe-finder-app",
-    live: "https://utkarsh-recipe-finder-app.vercel.app/",
   },
 ];
 
@@ -53,7 +53,7 @@ export default function Projects() {
             and scalable deployment practices.
           </p>
         </motion.div>
-
+ 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {PROJECTS.map((project, index) => (
             <motion.div
@@ -65,7 +65,7 @@ export default function Projects() {
               className="bg-background border border-border rounded-xl p-6 flex flex-col h-full hover:border-primary/40 hover:shadow-[0_0_30px_rgba(88,166,255,0.1)] transition-all duration-300 relative group overflow-hidden"
             >
               <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-primary to-accent transform origin-left scale-x-0 group-hover:scale-x-100 transition-transform duration-500" />
-
+ 
               <div className="flex items-center justify-between mb-6">
                 <div className="p-3 bg-secondary rounded-lg text-primary">
                   {project.icon}
@@ -77,12 +77,14 @@ export default function Projects() {
                   >
                     <Github size={20} />
                   </a>
-                  <a
-                    href={project.live}
-                    className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-primary/10 rounded-md"
-                  >
-                    <ExternalLink size={20} />
-                  </a>
+                  {project.live && (
+                    <a
+                      href={project.live}
+                      className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-primary/10 rounded-md"
+                    >
+                      <ExternalLink size={20} />
+                    </a>
+                  )}
                 </div>
               </div>
 

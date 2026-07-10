@@ -4,29 +4,26 @@ import { Briefcase, CalendarDays, MapPin } from "lucide-react";
 const experiences = [
   {
     role: "Backend & DevOps Intern",
-    company: "UPPCL (Uttar Pradesh Power Corporation Ltd.)",
-    location: "Lucknow, Uttar Pradesh",
-    duration: "Jun 2026 - Present",
+    company: "UPPCL — Uttar Pradesh Power Corporation Ltd.",
+    location: "IT Division, Lucknow (On-site)",
+    duration: "Jun 2026 – Jul 2026",
     points: [
-      "Built a MERN-based Consolidated Billing System for UPPCL.",
-      "Developed 25+ secure REST APIs using JWT, bcrypt, and validation middleware.",
-      "Implemented MongoDB schema design and RBAC authorization.",
-      "Managed Linux servers, Nginx deployment, and API testing with Jest/Supertest.",
+      "Built the backend for the Daily Revenue Monitoring Portal (DRMP), aggregating daily revenue data (Bank Wire, Payment Gateway, Billing System) across UPPCL divisions; designed 25+ REST API endpoints with JWT auth, bcrypt hashing, RBAC, and server-side validation.",
+      "Architected MongoDB schemas via Mongoose ODM with an asynchronous audit-trail logging service, prior-date continuity checks, and PDFKit/ExcelJS report exports.",
+      "Deployed the application on AWS EC2 provisioned via Terraform, containerized with Docker (non-root, multi-stage builds), and configured Nginx reverse proxy with Certbot SSL and a GitHub Actions CI/CD pipeline.",
     ],
   },
 
   {
-    role: "Software Engineer Intern",
-    company: "i2k2 Networks (P) Limited",
-    location: "Remote",
-    duration: "Jan 2026 - April 2026",
+    role: "Software Engineering Intern",
+    company: "i2k2 Networks Pvt. Ltd.",
+    location: "Noida, Uttar Pradesh (Remote)",
+    duration: "Jan 2026 – Apr 2026",
     points: [
-      "Automated deployment pipelines using GitHub Actions reducing release time by 40%.",
-      "Provisioned and managed AWS S3 + CloudFront for static site hosting.",
-      "Containerized services using Docker and orchestrated with Kubernetes.",
+      "Worked in Linux-based environments using Git & GitHub for version control, branching, and collaborative backend code management across real-world SDLC workflows.",
+      "Gained hands-on exposure to CI/CD pipelines, Docker containerization, and AWS cloud infrastructure in a professional DevOps setting.",
     ],
   },
-  // add more entries here
 ];
 
 export default function Experience() {

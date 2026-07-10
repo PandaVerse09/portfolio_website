@@ -4,72 +4,107 @@ import {
   SiGithubactions,
   SiNginx,
   SiPython,
-  SiFlask,
   SiHtml5,
   SiCss,
-  SiGnubash,
   SiGit,
   SiLinux,
-  SiVim,
-} from "react-icons/si";
-import { FaJava } from "react-icons/fa";
-import { FaJs } from "react-icons/fa";
-import { FaAws } from "react-icons/fa";
-
-import {
   SiNodedotjs,
   SiExpress,
   SiMongodb,
   SiReact,
   SiPostman,
   SiTailwindcss,
+  SiC,
+  SiVite,
+  SiMysql,
+  SiTerraform,
+  SiLetsencrypt,
+  SiJest,
+  SiJsonwebtokens,
+  SiGithub,
 } from "react-icons/si";
-
-import { Cloud, ArrowRightLeft } from "lucide-react";
+import { FaJava, FaJs, FaAws } from "react-icons/fa";
+import {
+  Cloud,
+  Lock,
+  Cookie,
+  Fingerprint,
+  Shield,
+  FileCheck,
+  UploadCloud,
+  FileText,
+  FileDown,
+  FileSpreadsheet,
+  Image,
+  FlaskConical,
+} from "lucide-react";
 
 const SKILL_CATEGORIES = [
   {
-    title: "Cloud & DevOps",
+    title: "Languages & Frontend",
     skills: [
-      { name: "AWS", icon: FaAws },
-      { name: "Docker", icon: SiDocker },
-      { name: "Nginx", icon: SiNginx },
-      { name: "GitHub Actions", icon: SiGithubactions },
-      { name: "CI/CD", icon: ArrowRightLeft },
-      { name: "Linux", icon: SiLinux },
-    ],
-  },
-  {
-    title: "Backend & MERN",
-    skills: [
-      { name: "Node.js", icon: SiNodedotjs },
-      { name: "Express.js", icon: SiExpress },
-      { name: "MongoDB", icon: SiMongodb },
-      { name: "React 18", icon: SiReact },
       { name: "JavaScript", icon: FaJs },
+      { name: "Python", icon: SiPython },
       { name: "Java", icon: FaJava },
-    ],
-  },
-  {
-    title: "Tools & Environment",
-    skills: [
-      { name: "Git", icon: SiGit },
-      { name: "GitHub", icon: SiGit },
-      { name: "Postman", icon: SiPostman },
+      { name: "C", icon: SiC },
+      { name: "React 18", icon: SiReact },
+      { name: "Vite", icon: SiVite },
       { name: "HTML5", icon: SiHtml5 },
       { name: "CSS3", icon: SiCss },
       { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
   },
   {
-    title: "Backend Engineering",
+    title: "Backend & Databases",
     skills: [
+      { name: "Node.js", icon: SiNodedotjs },
+      { name: "Express.js", icon: SiExpress },
       { name: "REST APIs", icon: Cloud },
-      { name: "JWT Auth", icon: Cloud },
-      { name: "RBAC", icon: Cloud },
-      { name: "Multer", icon: Cloud },
-      { name: "Jest", icon: Cloud },
-      { name: "Supertest", icon: Cloud },
+      { name: "MongoDB", icon: SiMongodb },
+      { name: "MySQL", icon: SiMysql },
+    ],
+  },
+  {
+    title: "Authentication & Security",
+    skills: [
+      { name: "JWT", icon: SiJsonwebtokens },
+      { name: "bcrypt", icon: Lock },
+      { name: "HTTP-only Cookies", icon: Cookie },
+      { name: "Session Management", icon: Fingerprint },
+      { name: "RBAC", icon: Shield },
+    ],
+  },
+  {
+    title: "Backend Libraries",
+    skills: [
+      { name: "express-validator", icon: FileCheck },
+      { name: "Multer", icon: UploadCloud },
+      { name: "csv-parser", icon: FileText },
+      { name: "PDFKit", icon: FileDown },
+      { name: "ExcelJS", icon: FileSpreadsheet },
+      { name: "ImageKit", icon: Image },
+      { name: "Jest", icon: SiJest },
+      { name: "Supertest", icon: FlaskConical },
+    ],
+  },
+  {
+    title: "DevOps & Cloud",
+    skills: [
+      { name: "AWS", icon: FaAws },
+      { name: "Docker", icon: SiDocker },
+      { name: "Terraform", icon: SiTerraform },
+      { name: "GitHub Actions", icon: SiGithubactions },
+      { name: "Nginx", icon: SiNginx },
+      { name: "Certbot", icon: SiLetsencrypt },
+      { name: "Linux", icon: SiLinux },
+    ],
+  },
+  {
+    title: "Tools & Technologies",
+    skills: [
+      { name: "Postman", icon: SiPostman },
+      { name: "Git", icon: SiGit },
+      { name: "GitHub", icon: SiGithub },
     ],
   },
 ];
@@ -105,7 +140,7 @@ export default function Skills() {
           <div className="h-1 w-20 bg-primary/50 rounded-full" />
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {SKILL_CATEGORIES.map((category, idx) => (
             <motion.div 
               key={idx}
