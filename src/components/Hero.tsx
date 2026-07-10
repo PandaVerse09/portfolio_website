@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { Terminal, Download, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-const ROLES = ["Backend Developer", "DevOps Engineer", "Cloud Architect"];
+const ROLES = ["DevOps Engineer", "Cloud Architect", "Backend Developer"];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -98,9 +98,9 @@ export default function Hero() {
           </div>
 
           <p className="max-w-2xl text-lg md:text-xl text-muted-foreground font-light leading-relaxed">
-            Backend & DevOps Engineer focused on building secure, scalable APIs and
-            deploying production-grade systems. Experienced in Node.js, AWS, Docker,
-            and automating CI/CD pipelines.
+            DevOps & Backend Engineer focused on automating cloud infrastructure,
+            building secure APIs, and deploying production-grade systems. Experienced
+            in AWS, Docker, CI/CD, and Node.js.
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 pt-8 w-full sm:w-auto">
