@@ -127,12 +127,12 @@ This ensured proper SPA routing support across browsers and devices.
 
 ## 🚀 Future Improvements
 
-- Custom domain with Route53
-- HTTPS via ACM
-- Dockerized deployment
-- Terraform Infrastructure as Code (IaC)
-- Monitoring & logging integration
-- Multi-environment CI/CD pipeline
+- Custom domain mapping with AWS Route53
+- HTTPS certificate management via AWS Certificate Manager (ACM)
+- Automated testing (e.g. Playwright or Cypress) integrated into the GitHub Actions pipeline
+- Infrastructure as Code (IaC) using Terraform to provision the S3 and CloudFront resources
+- Monitoring and access logging dashboard using AWS CloudWatch and SNS alerts
+- Multi-environment staging pipeline (Dev/Prod branches)
 
 ---
 
