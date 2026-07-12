@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, Download, ArrowRight } from "lucide-react";
+import { Terminal, ArrowRight, FileText } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import TerminalConsole from "@/components/TerminalConsole";
 
@@ -45,6 +45,16 @@ export default function Hero() {
 
   const scrollToProjects = () => {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleRequestResume = () => {
+    const event = new CustomEvent("request-resume", {
+      detail: {
+        message: "Hi Utkarsh, I would like to request your resume to discuss potential opportunities. Please get back to me. Thanks!"
+      }
+    });
+    window.dispatchEvent(event);
+    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
@@ -129,32 +139,16 @@ export default function Hero() {
                 size="lg"
                 variant="default"
                 className="relative overflow-hidden px-6 py-5 font-mono uppercase tracking-wider text-xs group shrink-0"
-                onClick={() => {
-                  window.open("/Utkarsh_Aryan_Mishra_Resume.pdf", "_blank");
-                }}
+                onClick={handleRequestResume}
               >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                 <span className="relative flex items-center gap-2">
-                  View Resume
-                </span>
-              </Button>
-              <Button
-                size="lg"
-                className="relative overflow-hidden px-6 py-5 font-mono uppercase tracking-wider text-xs group shrink-0"
-              >
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-
-                <a
-                  href="/Utkarsh_Aryan_Mishra_Resume.pdf"
-                  download
-                  className="relative flex items-center"
-                >
-                  <Download
+                  Request Resume
+                  <FileText
                     size={16}
-                    className="mr-2 group-hover:-translate-y-1 transition-transform"
+                    className="ml-1 group-hover:translate-x-1 transition-transform"
                   />
-                  Download
-                </a>
+                </span>
               </Button>
             </div>
           </motion.div>

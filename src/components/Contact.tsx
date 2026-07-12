@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, Github, Linkedin, TerminalSquare } from "lucide-react";
 import { Button } from "@/components/ui/button";
@@ -13,6 +13,21 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
+
+  useEffect(() => {
+    const handleRequest = (e: Event) => {
+      const customEvent = e as CustomEvent;
+      if (customEvent.detail && customEvent.detail.message) {
+        setMessage(customEvent.detail.message);
+        const nameInput = document.querySelector('input[placeholder="John Doe"]') as HTMLInputElement;
+        if (nameInput) {
+          nameInput.focus();
+        }
+      }
+    };
+    window.addEventListener("request-resume", handleRequest);
+    return () => window.removeEventListener("request-resume", handleRequest);
+  }, []);
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
