@@ -90,7 +90,7 @@ const SKILL_CATEGORIES = [
   {
     title: "DevOps & Cloud",
     skills: [
-      { name: "AWS", icon: FaAws },
+      { name: "AWS", icon: FaAws, badge: "CLF-C02" },
       { name: "Docker", icon: SiDocker },
       { name: "Terraform", icon: SiTerraform },
       { name: "GitHub Actions", icon: SiGithubactions },
@@ -195,10 +195,17 @@ export default function Skills() {
                     <motion.div 
                       key={sIdx}
                       variants={itemVariants}
-                      className="flex items-center gap-3 bg-background border border-border p-3 rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-colors group"
+                      className="flex items-center justify-between bg-background border border-border p-3 rounded-lg hover:border-primary/50 hover:bg-primary/5 transition-colors group"
                     >
-                      <Icon className="text-muted-foreground group-hover:text-primary transition-colors text-xl" />
-                      <span className="text-sm font-medium text-foreground">{skill.name}</span>
+                      <div className="flex items-center gap-2.5 overflow-hidden">
+                        <Icon className="text-muted-foreground group-hover:text-primary transition-colors text-xl shrink-0" />
+                        <span className="text-sm font-medium text-foreground truncate">{skill.name}</span>
+                      </div>
+                      {skill.badge && (
+                        <span className="text-[10px] font-mono font-bold px-1.5 py-0.5 rounded bg-[#FF9900]/10 text-[#FF9900] border border-[#FF9900]/30 shrink-0">
+                          {skill.badge}
+                        </span>
+                      )}
                     </motion.div>
                   )
                 })}

@@ -19,7 +19,7 @@ export default function TerminalConsole() {
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const COMMANDS = ["help", "skills", "projects", "terraform apply", "docker run drmp", "clear", "system"];
+  const COMMANDS = ["help", "skills", "certs", "certifications", "projects", "terraform apply", "docker run drmp", "clear", "system"];
 
   const handleCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase();
@@ -38,6 +38,7 @@ export default function TerminalConsole() {
         newLines.push(
           { text: "Available commands:", type: "success" },
           { text: "  skills          - Displays cloud infrastructure & programming skills.", type: "output" },
+          { text: "  certs           - View verified AWS & DevOps certifications.", type: "output" },
           { text: "  projects        - List main portfolio projects and deploy details.", type: "output" },
           { text: "  terraform apply - Simulate provisioning AWS resource infrastructure.", type: "output" },
           { text: "  docker run drmp - Spin up simulated Daily Revenue Monitoring container logs.", type: "output" },
@@ -45,10 +46,20 @@ export default function TerminalConsole() {
           { text: "  clear           - Clears terminal output screen.", type: "output" }
         );
         break;
+      case "certs":
+      case "certifications":
+        newLines.push(
+          { text: "--- Verified Industry Credentials ---", type: "success" },
+          { text: "[AWS Certification]: AWS Certified Cloud Practitioner (CLF-C02)", type: "warning" },
+          { text: "  Issuer: Amazon Web Services (AWS)", type: "output" },
+          { text: "  Status: Active & Verified", type: "success" },
+          { text: "  Domains: Cloud Concepts, Security & Compliance, Technology, Billing & Pricing", type: "output" }
+        );
+        break;
       case "skills":
         newLines.push(
           { text: "--- Technical Stack Output ---", type: "success" },
-          { text: "[Cloud/DevOps]: AWS, Docker, Terraform, CI/CD (GitHub Actions), Nginx, Linux", type: "output" },
+          { text: "[Cloud/DevOps]: AWS (CLF-C02 Certified), Docker, Terraform, CI/CD (GitHub Actions), Nginx, Linux", type: "output" },
           { text: "[Languages]: Python, JavaScript, Java, C", type: "output" },
           { text: "[Backend/DB]: Node.js, Express.js, REST APIs, MongoDB, MySQL", type: "output" },
           { text: "[Libraries]: JWT, bcrypt, Jest, Supertest, PDFKit, Nginx Reverse Proxy", type: "output" }

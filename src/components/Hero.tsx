@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, ArrowRight, FileText } from "lucide-react";
+import { Terminal, ArrowRight, FileText, Award } from "lucide-react";
+import { FaAws } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import TerminalConsole from "@/components/TerminalConsole";
 
@@ -91,11 +92,27 @@ export default function Hero() {
             transition={{ duration: 0.8 }}
             className="lg:col-span-7 flex flex-col items-start text-left space-y-6"
           >
-            <div className="inline-flex items-center justify-center p-3 bg-secondary/50 rounded-2xl border border-border/50 shadow-2xl backdrop-blur-sm">
-              <Terminal className="w-5 h-5 text-primary mr-3 animate-pulse" />
-              <span className="font-mono text-xs tracking-wider text-muted-foreground">
-                system.status == "operational"
-              </span>
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="inline-flex items-center justify-center p-2.5 bg-secondary/50 rounded-xl border border-border/50 shadow-xl backdrop-blur-sm">
+                <Terminal className="w-4 h-4 text-primary mr-2 animate-pulse" />
+                <span className="font-mono text-xs tracking-wider text-muted-foreground">
+                  system.status == "operational"
+                </span>
+              </div>
+
+              <a
+                href="#certifications"
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.querySelector("#certifications")?.scrollIntoView({ behavior: "smooth" });
+                }}
+                className="inline-flex items-center justify-center gap-2 p-2 px-3 bg-[#FF9900]/10 hover:bg-[#FF9900]/20 rounded-xl border border-[#FF9900]/40 shadow-xl backdrop-blur-sm group transition-all"
+              >
+                <FaAws className="w-4 h-4 text-[#FF9900]" />
+                <span className="font-mono text-xs font-semibold text-[#FF9900] group-hover:underline flex items-center gap-1">
+                  <Award className="w-3 h-3" /> AWS Certified CLF-C02
+                </span>
+              </a>
             </div>
 
             <div className="space-y-3">
