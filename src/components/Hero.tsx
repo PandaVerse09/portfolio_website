@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, ArrowRight, FileText, Award } from "lucide-react";
+import { Terminal, ArrowRight, ExternalLink, Award } from "lucide-react";
 import { FaAws } from "react-icons/fa";
 import { Button } from "@/components/ui/button";
 import TerminalConsole from "@/components/TerminalConsole";
@@ -48,14 +48,8 @@ export default function Hero() {
     document.querySelector("#projects")?.scrollIntoView({ behavior: "smooth" });
   };
 
-  const handleRequestResume = () => {
-    const event = new CustomEvent("request-resume", {
-      detail: {
-        message: "Hi Utkarsh, I would like to request your resume to discuss potential opportunities. Please get back to me. Thanks!"
-      }
-    });
-    window.dispatchEvent(event);
-    document.querySelector("#contact")?.scrollIntoView({ behavior: "smooth" });
+  const handleViewResume = () => {
+    window.open("/resume.pdf", "_blank", "noopener,noreferrer");
   };
 
   return (
@@ -141,7 +135,7 @@ export default function Hero() {
               <Button
                 size="lg"
                 onClick={scrollToProjects}
-                className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider text-xs px-6 py-5 group relative overflow-hidden shrink-0"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 font-mono uppercase tracking-wider text-xs px-6 py-5 group relative overflow-hidden shrink-0 cursor-pointer"
               >
                 <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
                 <span className="relative flex items-center gap-2">
@@ -152,21 +146,27 @@ export default function Hero() {
                   />
                 </span>
               </Button>
-              <Button
-                size="lg"
-                variant="default"
-                className="relative overflow-hidden px-6 py-5 font-mono uppercase tracking-wider text-xs group shrink-0"
-                onClick={handleRequestResume}
+              <a
+                href="/resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="shrink-0"
               >
-                <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
-                <span className="relative flex items-center gap-2">
-                  Request Resume
-                  <FileText
-                    size={16}
-                    className="ml-1 group-hover:translate-x-1 transition-transform"
-                  />
-                </span>
-              </Button>
+                <Button
+                  size="lg"
+                  variant="default"
+                  className="relative overflow-hidden px-6 py-5 font-mono uppercase tracking-wider text-xs group shrink-0 cursor-pointer"
+                >
+                  <div className="absolute inset-0 bg-white/20 translate-y-full group-hover:translate-y-0 transition-transform duration-300 ease-out" />
+                  <span className="relative flex items-center gap-2">
+                    View Resume
+                    <ExternalLink
+                      size={16}
+                      className="ml-1 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform"
+                    />
+                  </span>
+                </Button>
+              </a>
             </div>
           </motion.div>
 
