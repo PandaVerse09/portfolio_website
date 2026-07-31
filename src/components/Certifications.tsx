@@ -91,11 +91,8 @@ export default function Certifications() {
                     Exam Code: <span className="text-foreground font-bold">CLF-C02</span> &bull; Issued by <span className="text-[#FF9900] font-semibold">Amazon Web Services</span>
                   </p>
                   
-                  {/* Validation ID & Dates */}
-                  <div className="mt-3 flex flex-wrap items-center gap-y-1 gap-x-4 font-mono text-xs text-muted-foreground">
-                    <div>
-                      Validation No: <span className="text-accent font-semibold select-all font-mono">a5dfba6bf7344f5984d4bc2cf95b5aca</span>
-                    </div>
+                  {/* Dates */}
+                  <div className="mt-3 flex items-center font-mono text-xs text-muted-foreground">
                     <div>
                       Active Period: <span className="text-foreground font-medium">Jul 30, 2026 – Jul 30, 2029</span>
                     </div>
