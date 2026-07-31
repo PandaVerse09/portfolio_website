@@ -90,20 +90,30 @@ export default function Certifications() {
                   <p className="text-muted-foreground font-mono text-xs md:text-sm mt-1">
                     Exam Code: <span className="text-foreground font-bold">CLF-C02</span> &bull; Issued by <span className="text-[#FF9900] font-semibold">Amazon Web Services</span>
                   </p>
+                  
+                  {/* Validation ID & Dates */}
+                  <div className="mt-3 flex flex-wrap items-center gap-y-1 gap-x-4 font-mono text-xs text-muted-foreground">
+                    <div>
+                      Validation No: <span className="text-accent font-semibold select-all font-mono">a5dfba6bf7344f5984d4bc2cf95b5aca</span>
+                    </div>
+                    <div>
+                      Active Period: <span className="text-foreground font-medium">Jul 30, 2026 – Jul 30, 2029</span>
+                    </div>
+                  </div>
                 </div>
               </div>
 
               {/* Status / Link button */}
               <div className="shrink-0 flex items-center gap-3">
                 <a
-                  href="https://aws.amazon.com/verification"
+                  href="https://www.credly.com/go/hn1ghTtFHUqaaGKJvdOFGw"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-semibold bg-[#FF9900]/10 hover:bg-[#FF9900]/20 text-[#FF9900] border border-[#FF9900]/40 transition-all duration-200 shadow-sm"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-semibold bg-[#FF9900]/10 hover:bg-[#FF9900]/20 text-[#FF9900] border border-[#FF9900]/40 hover:border-[#FF9900] transition-all duration-200 shadow-md group/btn"
                 >
                   <ShieldCheck className="w-4 h-4" />
-                  <span>Verify Credential</span>
-                  <ExternalLink className="w-3.5 h-3.5 opacity-75" />
+                  <span>Verify on Credly</span>
+                  <ExternalLink className="w-3.5 h-3.5 opacity-75 group-hover/btn:translate-x-0.5 group-hover/btn:-translate-y-0.5 transition-transform" />
                 </a>
               </div>
             </div>

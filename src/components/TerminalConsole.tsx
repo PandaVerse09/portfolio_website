@@ -52,7 +52,9 @@ export default function TerminalConsole() {
           { text: "--- Verified Industry Credentials ---", type: "success" },
           { text: "[AWS Certification]: AWS Certified Cloud Practitioner (CLF-C02)", type: "warning" },
           { text: "  Issuer: Amazon Web Services (AWS)", type: "output" },
-          { text: "  Status: Active & Verified", type: "success" },
+          { text: "  Status: Active & Verified (Jul 30, 2026 – Jul 30, 2029)", type: "success" },
+          { text: "  Validation No: a5dfba6bf7344f5984d4bc2cf95b5aca", type: "output" },
+          { text: "  Credly Badge: https://www.credly.com/go/hn1ghTtFHUqaaGKJvdOFGw", type: "output" },
           { text: "  Domains: Cloud Concepts, Security & Compliance, Technology, Billing & Pricing", type: "output" }
         );
         break;
