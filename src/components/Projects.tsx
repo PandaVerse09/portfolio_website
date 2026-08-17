@@ -15,11 +15,11 @@ const PROJECTS = [
   {
     title: "Portfolio Website with Automated CI/CD Deployment",
     description:
-      "Deployed a personal portfolio website on AWS S3 + CloudFront CDN with a zero-touch CI/CD pipeline via GitHub Actions on every push to main. Configured HTTPS/TLS, IAM permissions, and automated caching for production-grade architecture. Automated build-and-deploy workflow invalidates the CloudFront cache on each release for instant content updates.",
-    tech: ["AWS S3", "CloudFront", "GitHub Actions", "React", "TypeScript", "Vite"],
+      "Deployed a personal portfolio website on AWS EC2 (Amazon Linux 2023) containerized with Docker & Nginx. Infrastructure provisioned via Terraform with custom domain routing (DuckDNS), Let's Encrypt SSL/TLS (Certbot), and a zero-touch SSH CI/CD pipeline via GitHub Actions on every push to main.",
+    tech: ["AWS EC2", "Docker", "Nginx", "Terraform", "Certbot SSL", "GitHub Actions", "React", "TypeScript", "Vite"],
     icon: <Cloud className="w-6 h-6" />,
     github: "https://github.com/PandaVerse09/portfolio_infrastructure",
-    live: "https://d3qvrbjs8hjfhe.cloudfront.net/",
+    live: "https://utkarsh-portfolio.duckdns.org/",
   },
   {
     title: "Dockerized To-Do Application",

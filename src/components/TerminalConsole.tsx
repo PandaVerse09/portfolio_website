@@ -70,7 +70,7 @@ export default function TerminalConsole() {
         newLines.push(
           { text: "--- Active Deployed Clusters ---", type: "success" },
           { text: "1. DRMP (Daily Revenue Monitoring Portal) -> AWS EC2 + Nginx Dockerized Stack [Live]", type: "output" },
-          { text: "2. Portfolio Infrastructure -> AWS S3 + CloudFront CDN + Actions pipeline [Live]", type: "output" },
+          { text: "2. Portfolio Infrastructure -> AWS EC2 + Docker + Nginx + Certbot + Terraform [Live]", type: "output" },
           { text: "3. Dockerized Flask App -> Nginx Reverse Proxy simulated topology [Mock-Lab]", type: "output" },
           { text: "Tip: Run 'docker run drmp' to spin up the revenue monitoring application service.", type: "warning" }
         );
