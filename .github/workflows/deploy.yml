@@ -1,4 +1,4 @@
-name: Deploy to S3
+name: Deploy Portfolio to AWS EC2
 
 on:
   push:
@@ -7,31 +7,43 @@ on:
 
 jobs:
   deploy:
+    name: Build & Deploy to EC2
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout Code
         uses: actions/checkout@v3
 
-      - name: Install dependencies
-        run: npm install
+      - name: Setup Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 20
 
-      - name: Build project
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build Vite App
         run: npm run build
 
-      - name: Configure AWS Credentials
-        uses: aws-actions/configure-aws-credentials@v2
+      - name: Copy files to EC2 via SCP
+        uses: appleboy/scp-action@v0.1.7
         with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ap-south-1
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          source: "dist,nginx.conf,Dockerfile"
+          target: "/var/www/portfolio"
+          strip_components: 0
 
-      - name: Deploy to S3
-        run: |
-          aws s3 sync dist s3://pandaverse-cloud-project --delete
-
-      - name: Invalidate CloudFront
-        run: |
-          aws cloudfront create-invalidation \
-          --distribution-id EGY4EJ38I4CBU \
-          --paths "/*"
+      - name: Build and Restart Docker Container on EC2
+        uses: appleboy/ssh-action@v1.0.3
+        with:
+          host: ${{ secrets.EC2_HOST }}
+          username: ec2-user
+          key: ${{ secrets.EC2_SSH_KEY }}
+          script: |
+            cd /var/www/portfolio
+            sudo docker stop portfolio-v2 || true
+            sudo docker rm portfolio-v2 || true
+            sudo docker build -t portfolio-v2 .
+            sudo docker run -d -p 80:80 -p 443:443 -v /etc/letsencrypt:/etc/letsencrypt:ro --name portfolio-v2 --restart always portfolio-v2

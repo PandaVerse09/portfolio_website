@@ -1,0 +1,5 @@
+aws_region    = "ap-south-1"
+project_name  = "portfolio-v2"
+instance_type = "t2.micro"
+key_name      = "your-aws-key-pair-name"
+domain_name   = "yourcustomdomain.com"
