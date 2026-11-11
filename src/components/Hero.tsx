@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, ArrowRight, ExternalLink, Award, Code2 } from "lucide-react";
+import { Terminal, ArrowRight, ExternalLink, Award } from "lucide-react";
 import { FaAws } from "react-icons/fa";
-import { SiLeetcode } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import TerminalConsole from "@/components/TerminalConsole";
 
@@ -106,18 +105,6 @@ export default function Hero() {
                 <FaAws className="w-4 h-4 text-[#FF9900]" />
                 <span className="font-mono text-xs font-semibold text-[#FF9900] group-hover:underline flex items-center gap-1">
                   <Award className="w-3 h-3" /> AWS Certified CLF-C02
-                </span>
-              </a>
-
-              <a
-                href="https://leetcode.com/u/pandaverze/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center justify-center gap-2 p-2 px-3 bg-emerald-500/10 hover:bg-emerald-500/20 rounded-xl border border-emerald-500/40 shadow-xl backdrop-blur-sm group transition-all"
-              >
-                <SiLeetcode className="w-4 h-4 text-emerald-400" />
-                <span className="font-mono text-xs font-semibold text-emerald-400 group-hover:underline flex items-center gap-1">
-                  <Code2 className="w-3 h-3" /> 100+ LeetCode
                 </span>
               </a>
             </div>
