@@ -1,34 +1,31 @@
 import { motion } from "framer-motion";
-import { Github, ExternalLink, Server, Cloud, Terminal, Code } from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Github, ExternalLink, Server, Boxes, Rocket } from "lucide-react";
 
 const PROJECTS = [
   {
+    title: "Kubernetes Platform Engineering & GitOps Lab",
+    description:
+      "Architected modular Terraform IaC provisioning a multi-AZ AWS VPC (4 subnets, 2 AZs) and EKS v1.30 cluster with Argo CD + Helm v3 GitOps delivery — achieving commit-to-production rollouts in under 3 minutes. Engineered multi-stage Docker builds gated by Aqua Trivy CVE scanning (cutting image size 79%, 1.1GB → 227MB), configured HPA (2→5 replicas) and Pod Disruption Budgets for sub-2s chaos failover, and instrumented RED-method observability via Prometheus ServiceMonitors and Grafana dashboards.",
+    tech: ["Kubernetes", "Helm", "Argo CD", "Terraform", "AWS EKS", "Docker", "Prometheus", "Grafana", "Trivy"],
+    icon: <Boxes className="w-6 h-6" />,
+    github: "https://github.com/PandaVerse09/kubernetes-platform-gitops",
+  },
+  {
+    title: "DeployForge — Cloud-Native Internal Developer Platform",
+    description:
+      "Built an event-driven Internal Developer Platform decoupling deployment requests from background execution via BullMQ and Redis, supporting concurrent builds with isolated filesystem sandboxing. Developed a 10-state finite state machine orchestrating Git checkout, multi-stage Docker builds, Trivy CVE/secret DevSecOps gating, and AWS SDK v3 (ECR/ECS/ALB) Blue/Green promotion via ALB listener re-weighting with SHA-256 digest auditing and real-time build log streaming.",
+    tech: ["TypeScript", "Node.js", "BullMQ", "Redis", "PostgreSQL", "Prisma", "Docker", "Trivy", "AWS SDK", "React"],
+    icon: <Rocket className="w-6 h-6" />,
+    github: "https://github.com/PandaVerse09/DeployForge",
+  },
+  {
     title: "Daily Revenue Monitoring Portal (DRMP)",
     description:
-      "Built 25+ REST API endpoints with Express.js and MongoDB/Mongoose for daily revenue reporting across Bank Wire, Payment Gateway, and Billing System streams; implemented JWT auth, bcrypt hashing, and RBAC. Engineered a client-side API adapter routing standard HTTP methods (GET, PUT, DELETE) through POST payloads to bypass firewall restrictions. Provisioned AWS EC2 infrastructure with Terraform, containerized the app with Docker (multi-stage, non-root builds), and configured Nginx with Certbot-managed SSL/TLS. Automated builds, pushes, and zero-downtime EC2 redeployment with a GitHub Actions CI/CD pipeline.",
-    tech: ["Node.js", "Express.js", "MongoDB", "Docker", "Terraform", "Nginx", "AWS", "GitHub Actions"],
+      "Built 25+ REST API endpoints with Express.js and MongoDB/Mongoose across 4 collections (Users, Payment Submissions, Consolidated Reports, Audit Logs) for UPPCL daily revenue aggregation across Bank Wire, Payment Gateway, and Billing System streams; implemented JWT auth, bcrypt, RBAC, async audit logging, and PDFKit/ExcelJS exports. Tested with Jest, Supertest, and Postman, and deployed on AWS EC2 via Terraform, Docker (non-root, multi-stage), Nginx, Certbot SSL, and GitHub Actions CI/CD.",
+    tech: ["Node.js", "Express.js", "MongoDB", "Docker", "Terraform", "Nginx", "AWS EC2", "Jest", "GitHub Actions"],
     icon: <Server className="w-6 h-6" />,
     github: "https://github.com/PandaVerse09/daily-revenue-monitoring-portal",
     live: "https://utkarsh-drmp.duckdns.org/",
-  },
-  {
-    title: "Portfolio Website with Automated CI/CD Deployment",
-    description:
-      "Deployed a personal portfolio website on AWS EC2 (Amazon Linux 2023) containerized with Docker & Nginx. Infrastructure provisioned via Terraform with custom domain routing (DuckDNS), Let's Encrypt SSL/TLS (Certbot), and a zero-touch SSH CI/CD pipeline via GitHub Actions on every push to main.",
-    tech: ["AWS EC2", "Docker", "Nginx", "Terraform", "Certbot SSL", "GitHub Actions", "React", "TypeScript", "Vite"],
-    icon: <Cloud className="w-6 h-6" />,
-    github: "https://github.com/PandaVerse09/portfolio_infrastructure",
-    live: "https://utkarsh-portfolio.duckdns.org/",
-  },
-  {
-    title: "Dockerized To-Do Application",
-    description:
-      "Containerized a Flask web application with Docker and configured Nginx as a reverse proxy to simulate real-world deployment topology across environments. Implemented task CRUD routes, persistent storage, and a Docker Compose setup to spin up the app and reverse proxy together with a single command.",
-    tech: ["Flask", "Docker", "Nginx", "Docker Compose"],
-    icon: <Code className="w-6 h-6" />,
-    github: "https://github.com/PandaVerse09/todo-flask-app",
-    live: "https://utkarshapp.publicvm.com",
   },
 ];
 
@@ -75,8 +72,8 @@ export default function Projects() {
               <span className="text-muted-foreground mr-1 text-2xl font-light">&gt;_</span>deployed_projects
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto">
-              Hands-on projects showcasing cloud infrastructure, CI/CD automation,
-              and scalable deployment practices.
+              Flagship systems showcasing backend architecture, Kubernetes GitOps,
+              cloud infrastructure, and CI/CD automation.
             </p>
           </motion.div>
  
@@ -99,6 +96,9 @@ export default function Projects() {
                 <div className="flex gap-2">
                   <a
                     href={project.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={`${project.title} GitHub Repository`}
                     className="text-muted-foreground hover:text-foreground transition-colors p-2 hover:bg-secondary rounded-md"
                   >
                     <Github size={20} />
@@ -106,6 +106,9 @@ export default function Projects() {
                   {project.live && (
                     <a
                       href={project.live}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label={`${project.title} Live Deployment`}
                       className="text-muted-foreground hover:text-primary transition-colors p-2 hover:bg-primary/10 rounded-md"
                     >
                       <ExternalLink size={20} />

@@ -1,27 +1,31 @@
 import { motion } from "framer-motion";
-import { Briefcase, CalendarDays, MapPin } from "lucide-react";
+import { Briefcase, CalendarDays, MapPin, Award, ExternalLink } from "lucide-react";
 
 const experiences = [
   {
-    role: "Backend & DevOps Intern",
+    role: "Software Engineer Intern",
     company: "UPPCL — Uttar Pradesh Power Corporation Ltd.",
-    location: "IT Division, Lucknow (On-site)",
+    location: "IT Division, Lucknow",
     duration: "Jun 2026 – Jul 2026",
+    certificateUrl:
+      "https://drive.google.com/file/d/1WWwIqT_Up3jmhRvMZy3StGa-FmHSYCyY/view?usp=drive_link",
     points: [
-      "Built the backend for the Daily Revenue Monitoring Portal (DRMP), aggregating daily revenue data (Bank Wire, Payment Gateway, Billing System) across UPPCL divisions; designed 25+ REST API endpoints with JWT auth, bcrypt hashing, RBAC, and server-side validation.",
-      "Architected MongoDB schemas via Mongoose ODM with an asynchronous audit-trail logging service, prior-date continuity checks, and PDFKit/ExcelJS report exports.",
-      "Deployed the application on AWS EC2 provisioned via Terraform, containerized with Docker (non-root, multi-stage builds), and configured Nginx reverse proxy with Certbot SSL and a GitHub Actions CI/CD pipeline.",
+      "Built the backend for the Daily Revenue Monitoring Portal (DRMP), aggregating revenue data from 3 payment streams (Bank Wire, Payment Gateway, Billing System) across UPPCL divisions; designed 25+ REST API endpoints with JWT auth, bcrypt, RBAC, and server-side validation.",
+      "Designed 4 MongoDB collections (Users, Payment Submissions, Consolidated Reports, Audit Logs) via Mongoose ODM with an asynchronous audit-trail logging service, prior-date continuity checks, and PDFKit/ExcelJS report exports.",
+      "Tested 25+ REST endpoints with Jest, Supertest, and Postman. Hosted initially on UPPCL servers, then redeployed on AWS EC2 via Terraform with Docker (non-root, multi-stage), Nginx, Certbot SSL, and GitHub Actions CI/CD.",
     ],
   },
 
   {
-    role: "Software Engineering Intern",
+    role: "Software Engineer Intern",
     company: "i2k2 Networks Pvt. Ltd.",
-    location: "Noida, Uttar Pradesh (Remote)",
+    location: "Noida, Uttar Pradesh",
     duration: "Jan 2026 – Apr 2026",
+    certificateUrl:
+      "https://drive.google.com/file/d/1h08GbAiS6orugcA5P-46afJxokUjkvsm/view?usp=drive_link",
     points: [
-      "Worked in Linux-based environments using Git & GitHub for version control, branching, and collaborative backend code management across real-world SDLC workflows.",
-      "Gained hands-on exposure to CI/CD pipelines, Docker containerization, and AWS cloud infrastructure in a professional DevOps setting.",
+      "Deployed internal applications and built GitHub Actions CI/CD pipelines while working alongside an engineering team.",
+      "Used Git/GitHub branching workflows, Docker, and AWS to deliver production SDLC and deployment workflows in industry.",
     ],
   },
 ];
@@ -95,13 +99,25 @@ export default function Experience() {
                         {exp.company}
                       </div>
                     </div>
-                    <div className="flex flex-col items-start sm:items-end gap-1 text-muted-foreground font-mono text-xs">
+                    <div className="flex flex-col items-start sm:items-end gap-1.5 text-muted-foreground font-mono text-xs">
                       <span className="flex items-center gap-1">
                         <CalendarDays className="w-3 h-3" /> {exp.duration}
                       </span>
                       <span className="flex items-center gap-1">
                         <MapPin className="w-3 h-3" /> {exp.location}
                       </span>
+                      {exp.certificateUrl && (
+                        <a
+                          href={exp.certificateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center gap-1.5 mt-1 px-3 py-1 rounded-lg bg-primary/10 hover:bg-primary/20 text-primary border border-primary/30 hover:border-primary/60 transition-all text-[11px] font-semibold group/cert"
+                        >
+                          <Award className="w-3 h-3" />
+                          <span>View Certificate</span>
+                          <ExternalLink className="w-3 h-3 opacity-75 group-hover/cert:translate-x-0.5 group-hover/cert:-translate-y-0.5 transition-transform" />
+                        </a>
+                      )}
                     </div>
                   </div>
 

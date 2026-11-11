@@ -19,7 +19,7 @@ export default function TerminalConsole() {
   const containerRef = useRef<HTMLDivElement>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const COMMANDS = ["help", "skills", "certs", "certifications", "projects", "terraform apply", "docker run drmp", "clear", "system"];
+  const COMMANDS = ["help", "skills", "certs", "certifications", "projects", "coding", "terraform apply", "docker run drmp", "clear", "system"];
 
   const handleCommand = (cmd: string) => {
     const trimmed = cmd.trim().toLowerCase();
@@ -37,9 +37,10 @@ export default function TerminalConsole() {
       case "help":
         newLines.push(
           { text: "Available commands:", type: "success" },
-          { text: "  skills          - Displays cloud infrastructure & programming skills.", type: "output" },
-          { text: "  certs           - View verified AWS & DevOps certifications.", type: "output" },
-          { text: "  projects        - List main portfolio projects and deploy details.", type: "output" },
+          { text: "  skills          - Displays software, cloud & DevOps skills.", type: "output" },
+          { text: "  certs           - View verified AWS certification.", type: "output" },
+          { text: "  projects        - List flagship engineering projects.", type: "output" },
+          { text: "  coding          - View LeetCode & Codeforces profiles.", type: "output" },
           { text: "  terraform apply - Simulate provisioning AWS resource infrastructure.", type: "output" },
           { text: "  docker run drmp - Spin up simulated Daily Revenue Monitoring container logs.", type: "output" },
           { text: "  system          - Outputs system host diagnostics & latency check.", type: "output" },
@@ -53,26 +54,35 @@ export default function TerminalConsole() {
           { text: "[AWS Certification]: AWS Certified Cloud Practitioner (CLF-C02)", type: "warning" },
           { text: "  Issuer: Amazon Web Services (AWS)", type: "output" },
           { text: "  Status: Active & Verified (Jul 30, 2026 – Jul 30, 2029)", type: "success" },
-          { text: "  Credly Badge: https://www.credly.com/go/hn1ghTtFHUqaaGKJvdOFGw", type: "output" },
+          { text: "  Credly Badge: https://www.credly.com/badges/351f5a2e-bb2f-42fc-97bb-3a51f0786e97", type: "output" },
           { text: "  Domains: Cloud Concepts, Security & Compliance, Technology, Billing & Pricing", type: "output" }
         );
         break;
       case "skills":
         newLines.push(
           { text: "--- Technical Stack Output ---", type: "success" },
-          { text: "[Cloud/DevOps]: AWS (CLF-C02 Certified), Docker, Terraform, CI/CD (GitHub Actions), Nginx, Linux", type: "output" },
-          { text: "[Languages]: Python, JavaScript, Java, C", type: "output" },
-          { text: "[Backend/DB]: Node.js, Express.js, REST APIs, MongoDB, MySQL", type: "output" },
-          { text: "[Libraries]: JWT, bcrypt, Jest, Supertest, PDFKit, Nginx Reverse Proxy", type: "output" }
+          { text: "[Backend & DB]: Node.js, Express.js, TypeScript, REST APIs, Microservices, MongoDB, PostgreSQL, MySQL, Redis, Prisma, BullMQ", type: "output" },
+          { text: "[Programming & CS]: Python, JavaScript, TypeScript, Java, C, React | DSA, OOP, System Design, DBMS, OS, Networks", type: "output" },
+          { text: "[Cloud & K8s]: AWS (EC2, EKS, S3, CloudFront, IAM), Terraform, Docker, Kubernetes, Helm, NGINX Ingress, Argo CD", type: "output" },
+          { text: "[Observability & Security]: Prometheus, Grafana, Trivy, K8s HPA, NetworkPolicies, Jest, Supertest, Postman", type: "output" },
+          { text: "[AI Tooling]: Antigravity, Claude, ChatGPT, OpenAI Codex, Prompt Engineering", type: "output" }
         );
         break;
       case "projects":
         newLines.push(
-          { text: "--- Active Deployed Clusters ---", type: "success" },
-          { text: "1. DRMP (Daily Revenue Monitoring Portal) -> AWS EC2 + Nginx Dockerized Stack [Live]", type: "output" },
-          { text: "2. Portfolio Infrastructure -> AWS EC2 + Docker + Nginx + Certbot + Terraform [Live]", type: "output" },
-          { text: "3. Dockerized Flask App -> Nginx Reverse Proxy simulated topology [Mock-Lab]", type: "output" },
+          { text: "--- Flagship Projects ---", type: "success" },
+          { text: "1. Kubernetes Platform Engineering & GitOps Lab -> AWS VPC/EKS + Argo CD + Helm + Trivy + Prometheus/Grafana [Repo]", type: "output" },
+          { text: "2. DeployForge -> Event-Driven IDP (TypeScript, BullMQ, Redis, PostgreSQL, Prisma, Trivy, AWS ECR/ECS/ALB) [Repo]", type: "output" },
+          { text: "3. DRMP (Daily Revenue Monitoring Portal) -> Node.js/Express/MongoDB + AWS EC2 + Terraform + Docker [Live]", type: "output" },
           { text: "Tip: Run 'docker run drmp' to spin up the revenue monitoring application service.", type: "warning" }
+        );
+        break;
+      case "coding":
+      case "profiles":
+        newLines.push(
+          { text: "--- Coding & Competitive Programming Profiles ---", type: "success" },
+          { text: "[LeetCode]:   https://leetcode.com/u/pandaverze/ (100+ problems solved)", type: "output" },
+          { text: "[Codeforces]: https://codeforces.com/profile/Utkarsh_Mishra09", type: "output" }
         );
         break;
       case "terraform apply":

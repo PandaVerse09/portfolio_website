@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { Mail, Send, Github, Linkedin, TerminalSquare } from "lucide-react";
+import { SiLeetcode, SiCodeforces } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -112,13 +113,13 @@ export default function Contact() {
                 <span className="text-muted-foreground mr-1 text-2xl md:text-3xl font-light">ssh</span>connect
               </h2>
             <p className="text-muted-foreground text-lg mb-8 leading-relaxed">
-              Interested in collaborating, discussing DevOps projects, or
-              opportunities? Feel free to reach out — I’m actively seeking
-              opportunities to learn, build, and contribute in DevOps and cloud
-              technologies.
+              Interested in collaborating, discussing backend or cloud engineering
+              projects, or entry-level Software Engineer and Cloud roles? Feel free
+              to reach out — I’m actively seeking opportunities to build, automate,
+              and ship reliable systems.
             </p>
 
-            <div className="space-y-6 mb-12">
+            <div className="space-y-4 mb-12">
               <a
                 href="mailto:utkarsharyan090205@gmail.com"
                 className="flex items-center gap-4 text-muted-foreground hover:text-primary transition-colors group"
@@ -149,6 +150,28 @@ export default function Contact() {
                   <Github className="w-5 h-5" />
                 </div>
                 <span className="font-mono">github.com/PandaVerse09</span>
+              </a>
+              <a
+                href="https://leetcode.com/u/pandaverze/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 text-muted-foreground hover:text-amber-400 transition-colors group"
+              >
+                <div className="p-3 bg-secondary rounded-lg border border-border group-hover:border-amber-400/30 transition-colors">
+                  <SiLeetcode className="w-5 h-5" />
+                </div>
+                <span className="font-mono">leetcode.com/u/pandaverze</span>
+              </a>
+              <a
+                href="https://codeforces.com/profile/Utkarsh_Mishra09"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-4 text-muted-foreground hover:text-sky-400 transition-colors group"
+              >
+                <div className="p-3 bg-secondary rounded-lg border border-border group-hover:border-sky-400/30 transition-colors">
+                  <SiCodeforces className="w-5 h-5" />
+                </div>
+                <span className="font-mono">codeforces.com/profile/Utkarsh_Mishra09</span>
               </a>
             </div>
           </div>

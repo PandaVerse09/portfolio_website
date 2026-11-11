@@ -7,6 +7,7 @@ const NAV_LINKS = [
   { name: "Experience", href: "#experience" },
   { name: "Skills", href: "#skills" },
   { name: "Certifications", href: "#certifications" },
+  { name: "Profiles", href: "#achievements" },
   { name: "Projects", href: "#projects" },
   { name: "Console", href: "#control-center" },
   { name: "Contact", href: "#contact" },
@@ -65,7 +66,7 @@ export default function Navbar() {
         </div>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-8">
+        <div className="hidden md:flex items-center gap-5 lg:gap-6">
           {NAV_LINKS.map((link, i) => (
             <motion.a
               key={link.name}
@@ -74,7 +75,7 @@ export default function Navbar() {
               transition={{ duration: 0.3, delay: i * 0.1 }}
               href={link.href}
               onClick={(e) => { e.preventDefault(); scrollTo(link.href); }}
-              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider font-mono"
+              className="text-xs lg:text-sm font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-wider font-mono"
             >
               {link.name}
             </motion.a>

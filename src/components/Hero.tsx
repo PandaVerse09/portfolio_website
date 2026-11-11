@@ -1,11 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Terminal, ArrowRight, ExternalLink, Award } from "lucide-react";
+import { Terminal, ArrowRight, ExternalLink, Award, Code2 } from "lucide-react";
 import { FaAws } from "react-icons/fa";
+import { SiLeetcode } from "react-icons/si";
 import { Button } from "@/components/ui/button";
 import TerminalConsole from "@/components/TerminalConsole";
 
-const ROLES = ["DevOps Engineer", "Cloud Architect", "Backend Developer"];
+const ROLES = ["Software Engineer", "Cloud & DevOps Engineer", "Backend Developer"];
 
 export default function Hero() {
   const [roleIndex, setRoleIndex] = useState(0);
@@ -107,6 +108,18 @@ export default function Hero() {
                   <Award className="w-3 h-3" /> AWS Certified CLF-C02
                 </span>
               </a>
+
+              <a
+                href="https://leetcode.com/u/pandaverze/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center gap-2 p-2 px-3 bg-emerald-500/10 hover:bg-emerald-500/20 rounded-xl border border-emerald-500/40 shadow-xl backdrop-blur-sm group transition-all"
+              >
+                <SiLeetcode className="w-4 h-4 text-emerald-400" />
+                <span className="font-mono text-xs font-semibold text-emerald-400 group-hover:underline flex items-center gap-1">
+                  <Code2 className="w-3 h-3" /> 100+ LeetCode
+                </span>
+              </a>
             </div>
 
             <div className="space-y-3">
@@ -126,9 +139,10 @@ export default function Hero() {
             </div>
 
             <p className="max-w-xl text-base md:text-lg text-muted-foreground font-light leading-relaxed">
-              DevOps & Backend Engineer focused on automating cloud infrastructure,
-              building secure APIs, and deploying production-grade systems. Experienced
-              in AWS, Docker, CI/CD, and Node.js.
+              Final-year B.Tech IT student targeting Software Engineer and Cloud roles.
+              Built a 25+ endpoint Node.js/Express/MongoDB backend for UPPCL on AWS,
+              a Kubernetes GitOps lab, and DeployForge—an event-driven deployment platform
+              in TypeScript.
             </p>
 
             <div className="flex flex-wrap gap-3 pt-4 w-full">

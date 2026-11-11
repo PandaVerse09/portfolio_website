@@ -1,11 +1,10 @@
 import { motion } from "framer-motion";
+import type { IconType } from "react-icons";
 import {
   SiDocker,
   SiGithubactions,
   SiNginx,
   SiPython,
-  SiHtml5,
-  SiCss,
   SiGit,
   SiLinux,
   SiNodedotjs,
@@ -22,35 +21,68 @@ import {
   SiJest,
   SiJsonwebtokens,
   SiGithub,
+  SiTypescript,
+  SiPostgresql,
+  SiRedis,
+  SiPrisma,
+  SiKubernetes,
+  SiHelm,
+  SiArgo,
+  SiPrometheus,
+  SiGrafana,
+  SiTrivy,
+  SiClaude,
+  SiOpenai,
 } from "react-icons/si";
 import { FaJava, FaJs, FaAws } from "react-icons/fa";
 import {
   Cloud,
-  Lock,
-  Cookie,
-  Fingerprint,
+  Layers,
+  Binary,
+  Boxes,
+  Network,
+  Database,
+  Cpu,
+  Globe,
+  Server,
+  HardDrive,
+  KeyRound,
+  RefreshCw,
+  FileCode2,
+  Activity,
   Shield,
-  FileCheck,
-  UploadCloud,
-  FileText,
-  FileDown,
-  FileSpreadsheet,
-  Image,
+  CheckCircle2,
   FlaskConical,
+  Sparkles,
+  Terminal,
+  Bot,
+  Wand2,
+  Workflow,
+  type LucideIcon,
 } from "lucide-react";
 
-const SKILL_CATEGORIES = [
+interface SkillItem {
+  name: string;
+  icon: IconType | LucideIcon;
+  badge?: string;
+}
+
+interface SkillCategory {
+  title: string;
+  skills: SkillItem[];
+}
+
+const SKILL_CATEGORIES: SkillCategory[] = [
   {
-    title: "Languages & Frontend",
+    title: "Programming & Frontend",
     skills: [
-      { name: "JavaScript", icon: FaJs },
       { name: "Python", icon: SiPython },
+      { name: "JavaScript", icon: FaJs },
+      { name: "TypeScript", icon: SiTypescript },
       { name: "Java", icon: FaJava },
       { name: "C", icon: SiC },
-      { name: "React 18", icon: SiReact },
+      { name: "React", icon: SiReact },
       { name: "Vite", icon: SiVite },
-      { name: "HTML5", icon: SiHtml5 },
-      { name: "CSS3", icon: SiCss },
       { name: "Tailwind CSS", icon: SiTailwindcss },
     ],
   },
@@ -60,51 +92,89 @@ const SKILL_CATEGORIES = [
       { name: "Node.js", icon: SiNodedotjs },
       { name: "Express.js", icon: SiExpress },
       { name: "REST APIs", icon: Cloud },
+      { name: "Microservices", icon: Layers },
       { name: "MongoDB", icon: SiMongodb },
+      { name: "PostgreSQL", icon: SiPostgresql },
       { name: "MySQL", icon: SiMysql },
+      { name: "Redis", icon: SiRedis },
+      { name: "Prisma", icon: SiPrisma },
+      { name: "BullMQ", icon: Workflow },
     ],
   },
   {
-    title: "Authentication & Security",
+    title: "Core CS Fundamentals",
     skills: [
-      { name: "JWT", icon: SiJsonwebtokens },
-      { name: "bcrypt", icon: Lock },
-      { name: "HTTP-only Cookies", icon: Cookie },
-      { name: "Session Management", icon: Fingerprint },
-      { name: "RBAC", icon: Shield },
+      { name: "DSA", icon: Binary },
+      { name: "OOP", icon: Boxes },
+      { name: "System Design", icon: Network },
+      { name: "DBMS", icon: Database },
+      { name: "OS", icon: Cpu },
+      { name: "Networks", icon: Globe },
     ],
   },
   {
-    title: "Backend Libraries",
-    skills: [
-      { name: "express-validator", icon: FileCheck },
-      { name: "Multer", icon: UploadCloud },
-      { name: "csv-parser", icon: FileText },
-      { name: "PDFKit", icon: FileDown },
-      { name: "ExcelJS", icon: FileSpreadsheet },
-      { name: "ImageKit", icon: Image },
-      { name: "Jest", icon: SiJest },
-      { name: "Supertest", icon: FlaskConical },
-    ],
-  },
-  {
-    title: "DevOps & Cloud",
+    title: "Cloud & Infrastructure",
     skills: [
       { name: "AWS", icon: FaAws, badge: "CLF-C02" },
-      { name: "Docker", icon: SiDocker },
+      { name: "EC2", icon: Server },
+      { name: "EKS", icon: SiKubernetes },
+      { name: "S3", icon: HardDrive },
+      { name: "CloudFront", icon: Globe },
+      { name: "IAM", icon: KeyRound },
       { name: "Terraform", icon: SiTerraform },
-      { name: "GitHub Actions", icon: SiGithubactions },
-      { name: "Nginx", icon: SiNginx },
-      { name: "Certbot", icon: SiLetsencrypt },
       { name: "Linux", icon: SiLinux },
     ],
   },
   {
-    title: "Tools & Technologies",
+    title: "Containers & Orchestration",
     skills: [
-      { name: "Postman", icon: SiPostman },
+      { name: "Docker", icon: SiDocker },
+      { name: "Kubernetes", icon: SiKubernetes },
+      { name: "Helm", icon: SiHelm },
+      { name: "NGINX Ingress", icon: SiNginx },
+      { name: "Certbot SSL", icon: SiLetsencrypt },
+    ],
+  },
+  {
+    title: "DevOps & GitOps",
+    skills: [
+      { name: "GitHub Actions", icon: SiGithubactions },
+      { name: "Argo CD", icon: SiArgo },
+      { name: "CI/CD", icon: RefreshCw },
+      { name: "IaC", icon: FileCode2 },
       { name: "Git", icon: SiGit },
       { name: "GitHub", icon: SiGithub },
+    ],
+  },
+  {
+    title: "Observability & Security",
+    skills: [
+      { name: "Prometheus", icon: SiPrometheus },
+      { name: "Grafana", icon: SiGrafana },
+      { name: "Trivy", icon: SiTrivy },
+      { name: "K8s HPA", icon: Activity },
+      { name: "NetworkPolicies", icon: Shield },
+      { name: "JWT & RBAC", icon: SiJsonwebtokens },
+    ],
+  },
+  {
+    title: "Testing & Tools",
+    skills: [
+      { name: "Unit Testing", icon: CheckCircle2 },
+      { name: "Jest", icon: SiJest },
+      { name: "Supertest", icon: FlaskConical },
+      { name: "Postman", icon: SiPostman },
+    ],
+  },
+  {
+    title: "AI & Developer Tooling",
+    skills: [
+      { name: "Antigravity", icon: Sparkles },
+      { name: "Claude", icon: SiClaude },
+      { name: "ChatGPT", icon: SiOpenai },
+      { name: "OpenAI Codex", icon: Terminal },
+      { name: "AI-Assisted Dev", icon: Bot },
+      { name: "Prompt Eng.", icon: Wand2 },
     ],
   },
 ];

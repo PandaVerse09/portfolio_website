@@ -103,7 +103,7 @@ export default function Certifications() {
               {/* Status / Link button */}
               <div className="shrink-0 flex items-center gap-3">
                 <a
-                  href="https://www.credly.com/go/hn1ghTtFHUqaaGKJvdOFGw"
+                  href="https://www.credly.com/badges/351f5a2e-bb2f-42fc-97bb-3a51f0786e97"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl font-mono text-xs font-semibold bg-[#FF9900]/10 hover:bg-[#FF9900]/20 text-[#FF9900] border border-[#FF9900]/40 hover:border-[#FF9900] transition-all duration-200 shadow-md group/btn"

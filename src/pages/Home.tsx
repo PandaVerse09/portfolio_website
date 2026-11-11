@@ -7,6 +7,7 @@ import Skills from "@/components/Skills";
 import Contact from "@/components/Contact";
 import Experience from "@/components/Experience";
 import Certifications from "@/components/Certifications";
+import Achievements from "@/components/Achievements";
 import NetworkMeshBackground from "@/components/NetworkMeshBackground";
 import PipelineSimulator from "@/components/PipelineSimulator";
 import InfrastructureDashboard from "@/components/InfrastructureDashboard";
@@ -28,6 +29,7 @@ export default function Home() {
           <Experience />
           <Skills />
           <Certifications />
+          <Achievements />
           <Projects />
 
           {/* Interactive DevOps Control Center */}
